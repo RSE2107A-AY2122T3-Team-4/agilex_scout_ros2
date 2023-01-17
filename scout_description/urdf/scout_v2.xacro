@@ -28,7 +28,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://scout_description/meshes/scout_v2/base_link.dae" />
+                <mesh filename="package://scout_description/meshes/base_link.dae" />
             </geometry>
         </visual>
         <collision>
@@ -82,5 +82,22 @@
     <xacro:scout_wheel_type2 wheel_prefix="rear_right">
         <origin xyz="${-wheelbase/2} ${-track/2} ${wheel_vertical_offset}" rpy="3.14 0 0" />
     </xacro:scout_wheel_type2>
+
+    <!-- ROS 2 Control -->
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <joint name="scout_motor_fr_controller">
+            <command_interface name="position">
+            </command_interface>
+        </joint>
+    </ros2_control>
+
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <parameters>$(find scout_description)/config/</parameters>
+        </plugin>
+    </gazebo>
 
 </robot>
