@@ -96,7 +96,7 @@
 
     <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-            <parameters>$(find scout_description)/config/</parameters>
+            <parameters>$(find scout_description)/config/scout_v2_control.yaml</parameters>
         </plugin>
     </gazebo>
 
