@@ -88,9 +88,46 @@
         <hardware>
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
-        <joint name="scout_motor_fr_controller">
-            <command_interface name="position">
+
+        <!-- Wheel joints -->
+        <!-- Front Right Wheel Joint -->
+        <joint name="front_right_wheel">
+            <command_interface name="velocity">
+                <param name="min">-1</param>
+                <param name="max">1</param>
             </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Front Left Wheel Joint -->
+        <joint name="front_left_wheel">
+            <command_interface name="velocity">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Rear Right Wheel Joint -->
+        <joint name="rear_right_wheel">
+            <command_interface name="velocity">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Rear Left Wheel Joint -->
+        <joint name="rear_left_wheel">
+            <command_interface name="velocity">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
         </joint>
     </ros2_control>
 
